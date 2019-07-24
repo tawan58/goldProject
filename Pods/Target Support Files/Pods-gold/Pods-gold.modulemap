@@ -1,0 +1,6 @@
+module Pods_gold {
+  umbrella header "Pods-gold-umbrella.h"
+
+  export *
+  module * { export * }
+}
