@@ -45,7 +45,12 @@ class ViewController: UIViewController {
         var emailTxt = self.email.text
         var passwordTxt = self.password.text
         
-        if emailTxt != "" && passwordTxt != "" && emailTxt?.range(of: "@") != nil && passwordTxt!.count >= 8 {
+        if emailTxt == "" && passwordTxt == "" && emailTxt?.range(of: "@") == nil && passwordTxt!.count == 0 {
+            
+            //Alert for register complete
+            let alert = UIAlertController(title: "Register", message: "Plese enter your email and password.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
         
             //Email and Password empty
             if emailTxt == "" && passwordTxt == "" {
@@ -68,11 +73,6 @@ class ViewController: UIViewController {
             if emailTxt != "" && passwordTxt != "" && emailTxt?.range(of: "@") != nil && passwordTxt!.count >= 8 {
                 label1.text = ""
                 label2.text = ""
-            
-                //Alert for register complete
-                let alert = UIAlertController(title: "Register", message: "Complete", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true)
             }
         
             //ToDo post the data to firebase
